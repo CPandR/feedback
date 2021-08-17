@@ -4,7 +4,7 @@ interface ButtonProps {
 }
 
 const Button = ({ valid, submitFeedback }: ButtonProps) => (
-  <button id="button" disabled={!valid} onClick={submitFeedback}>
+  <button disabled={!valid} onClick={submitFeedback}>
     Submit
   </button>
 );
