@@ -113,6 +113,7 @@ p {
   justify-content: center;
   align-items: center;
   transition: 0.2s ease-in-out;
+  background-color: var(--white);
 }
 
 @media(max-width: 500px) {

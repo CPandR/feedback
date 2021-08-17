@@ -3,8 +3,12 @@ interface ButtonProps {
   submitFeedback(event: React.MouseEvent<HTMLButtonElement>): void;
 }
 
+const style = {
+  backgroundColor: 'white',
+};
+
 const Button = ({ valid, submitFeedback }: ButtonProps) => (
-  <button disabled={!valid} onClick={submitFeedback}>
+  <button style={style} disabled={!valid} onClick={submitFeedback}>
     Submit
   </button>
 );
