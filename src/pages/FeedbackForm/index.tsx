@@ -1,6 +1,13 @@
 import { useState } from 'react';
+import axios from 'axios';
+import qs, { ParsedQuery } from 'query-string';
+import prod from '../../config/config';
 import Question from '../../components/Question';
 import Button from '../../components/Button';
+
+interface FeedbackFormProps {
+  setState: Function;
+}
 
 interface IFeedback {
   1: number | null;
@@ -9,11 +16,21 @@ interface IFeedback {
   4: number | null;
 }
 
-function FeedbackForm() {
+function FeedbackForm({ setState }: FeedbackFormProps) {
   const [feedback, setFeedback] = useState<IFeedback>({ 1: null, 2: null, 3: null, 4: null });
 
   const submitFeedback = () => {
-    console.log(feedback);
+    const { id }: ParsedQuery<string> = qs.parse(window.location.search);
+    axios
+      .patch(`${prod}/submit_feedback/${id}`, {
+        coaching: feedback['1'],
+        project_management: feedback['2'],
+        four_pillars: feedback['3'],
+        communication: feedback['4'],
+      })
+      .then(() => {
+        setState('success');
+      });
   };
 
   return (

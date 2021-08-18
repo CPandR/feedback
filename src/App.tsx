@@ -14,7 +14,6 @@ function App() {
 
   useEffect(() => {
     const { id }: ParsedQuery<string> = qs.parse(window.location.search);
-    console.log(process.env.NODE_ENV);
     axios
       .get(`${prod}/validate_feedback/${id}`)
       .then(() => {
@@ -38,7 +37,7 @@ function App() {
 
   // Form state
   if (state === 'form') {
-    return <FeedbackForm />;
+    return <FeedbackForm setState={setState} />;
   }
 
   // Success state
