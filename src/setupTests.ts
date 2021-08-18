@@ -1,6 +1,6 @@
-import '@testing-library/jest-dom';
-import '@testing-library/jest-dom/extend-expect';
+import "@testing-library/jest-dom";
+import "@testing-library/jest-dom/extend-expect";
 
 module.exports = {
-  setupFilesAfterEnv: ['<rootDir>/src/setupTests.js'],
+  setupFilesAfterEnv: ["<rootDir>/src/setupTests.js"],
 };
