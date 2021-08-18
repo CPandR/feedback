@@ -279,3 +279,31 @@ button:disabled {
   justify-content: center;
   align-items: center;
 }
+
+.error-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-container h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.error-container p {
+  max-width: 800px;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+@media(max-width: 450px) {
+  .error-container p {
+    font-size: 1rem;
+    padding: 0 2rem;
+    text-align: center;
+  }
+}
