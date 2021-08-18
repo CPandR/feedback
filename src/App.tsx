@@ -5,6 +5,7 @@ import './App.css';
 import FeedbackForm from './pages/FeedbackForm';
 import Loading from './pages/Loading';
 import Error from './pages/Error';
+import Success from './pages/Success';
 
 function App() {
   const [state, setState] = useState<string>('loading');
@@ -15,13 +16,12 @@ function App() {
     axios
       .get(`http://localhost:5001/api/booking/validate_feedback/${id}`)
       .then(() => {
-        setState('form');
+        setState('success');
       })
       .catch((err) => {
         const { error } = err.response.data;
         setState('error');
         setError(error);
-        console.log('Set state to error and error state set to - ', error);
       });
   }, []);
 
@@ -41,7 +41,7 @@ function App() {
 
   // Success state
   if (state === 'success') {
-    return <Loading />;
+    return <Success />;
   }
 
   // Fallback error state

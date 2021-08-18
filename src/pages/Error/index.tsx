@@ -19,7 +19,7 @@ const Error = ({ error }: ErrorProps) => {
   }
 
   return (
-    <div className="error-container">
+    <div className="alt-container">
       <h1>Uh oh!</h1>
       <p>{message}</p>
     </div>

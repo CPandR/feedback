@@ -13,6 +13,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   --secondary-text: rgba(0, 0, 0, 0, 7);
   --black: rgba(0, 0, 0, 1);
   --white: rgba(255, 255, 255, 1);
+  --green: #7ac142;
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
@@ -280,7 +281,7 @@ button:disabled {
   align-items: center;
 }
 
-.error-container {
+.alt-container {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -289,21 +290,76 @@ button:disabled {
   align-items: center;
 }
 
-.error-container h1 {
+.alt-container h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
 }
 
-.error-container p {
+.alt-container h2 {
+  font-size: 2.2rem;
+  margin: 0.8rem;
+}
+
+.alt-container p {
   max-width: 800px;
   padding: 0 2rem;
   text-align: center;
 }
 
 @media(max-width: 450px) {
-  .error-container p {
+  .alt-container p {
     font-size: 1rem;
     padding: 0 2rem;
     text-align: center;
+  }
+}
+
+.checkmark {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2;
+  stroke: var(--white);
+  stroke-miterlimit: 10;
+  box-shadow: inset 0px 0px 0px var(--green);
+  animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+}
+
+.checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: var(--green);
+  fill: none;
+  animation: stroke .6s cubic-bezier(0.650, 0.000, 0.450, 1.000) forwards;
+}
+
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke .3s cubic-bezier(0.650, 0.000, 0.450, 1.000) .8s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes scale {
+  0%, 100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 30px var(--green);
   }
 }
