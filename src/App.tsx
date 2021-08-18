@@ -6,6 +6,7 @@ import FeedbackForm from './pages/FeedbackForm';
 import Loading from './pages/Loading';
 import Error from './pages/Error';
 import Success from './pages/Success';
+import { prod } from './config/config';
 
 function App() {
   const [state, setState] = useState<string>('loading');
@@ -13,13 +14,14 @@ function App() {
 
   useEffect(() => {
     const { id }: ParsedQuery<string> = qs.parse(window.location.search);
+    console.log(process.env.NODE_ENV);
     axios
-      .get(`http://localhost:5001/api/booking/validate_feedback/${id}`)
+      .get(`${prod}/validate_feedback/${id}`)
       .then(() => {
-        setState('success');
+        setState('form');
       })
       .catch((err) => {
-        const { error } = err.response.data;
+        const { error } = err?.response?.data;
         setState('error');
         setError(error);
       });
