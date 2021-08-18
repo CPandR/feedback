@@ -6,7 +6,7 @@ import FeedbackForm from './pages/FeedbackForm';
 import Loading from './pages/Loading';
 import Error from './pages/Error';
 import Success from './pages/Success';
-import { prod } from './config/config';
+import prod from './config/config';
 
 function App() {
   const [state, setState] = useState<string>('loading');
