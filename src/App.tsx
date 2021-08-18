@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import qs, { ParsedQuery } from 'query-string';
 import './App.css';
 import FeedbackForm from './pages/FeedbackForm';
 import Loading from './pages/Loading';
@@ -10,9 +11,9 @@ function App() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    const { id }: ParsedQuery<string> = qs.parse(window.location.search);
     axios
-      .get(`http://localhost:5001/api/booking/validate_feedback/611cb9a5d37dff3443`)
-      // .get(`http://localhost:5001/api/booking/validate_feedback/611cb9f5707ea5d37dff3443`)
+      .get(`http://localhost:5001/api/booking/validate_feedback/${id}`)
       .then(() => {
         setState('form');
       })
