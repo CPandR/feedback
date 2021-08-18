@@ -1,9 +1,16 @@
 import { useState } from 'react';
-import Question from '../components/Question';
-import Button from '../components/Button';
+import Question from '../../components/Question';
+import Button from '../../components/Button';
+
+interface IFeedback {
+  1: number | null;
+  2: number | null;
+  3: number | null;
+  4: number | null;
+}
 
 function FeedbackForm() {
-  const [feedback, setFeedback] = useState({ 1: null, 2: null, 3: null, 4: null });
+  const [feedback, setFeedback] = useState<IFeedback>({ 1: null, 2: null, 3: null, 4: null });
 
   const submitFeedback = () => {
     console.log(feedback);

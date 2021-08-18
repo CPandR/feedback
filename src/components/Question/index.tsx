@@ -19,6 +19,7 @@ const Question = ({ title, detail, question, currentValue, setFeedback }: Questi
           return (
             <div
               key={`${title} - ${num}`}
+              role="button"
               className={`number ${currentValue === num ? 'selected' : ''}`}
               onClick={() => handleChange(num)}
             >
