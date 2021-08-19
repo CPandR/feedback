@@ -17,7 +17,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   --green: #7ac142;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=El+Messiri&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Philosopher&display=swap');
 @font-face {
   font-family: 'Rockwell';
   src: local('Rockwell'), url('./assets/fonts/Rockwell.otf') format('otf'),
@@ -29,7 +29,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 body {
   line-height: 1;
-  font-family: 'El Messiri', sans-serif;
+  font-family: 'Philosopher', sans-serif;
 }
 
 ::selection {
