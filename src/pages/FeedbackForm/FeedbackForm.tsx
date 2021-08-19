@@ -40,7 +40,8 @@ export function FeedbackForm({ setState }: FeedbackFormProps) {
       </div>
       <h1>Your feedback is important</h1>
       <p className="context">
-        Following your last session, please score...
+        Following your last session, please score your Academy Coach according to their current performance. Here is a
+        reference for your scoring:
         <ol>
           <li>
             <span className="li-num">1</span> - Minimal to no ability (definitely not ready to graduate)
