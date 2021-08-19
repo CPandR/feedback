@@ -164,13 +164,14 @@ li {
 
 .number:hover {
   background-color: var(--yellow);
-  /* color: var(--white); */
   cursor: pointer;
   transition: 0.2s ease-in-out;
+  border: 1px solid var(--yellow);
 }
 
 .selected {
   background-color: var(--yellow);
+  border: 1px solid var(--yellow);
 }
 
 .button-cont {
