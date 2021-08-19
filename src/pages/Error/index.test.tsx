@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import Error from './index';
+import { Error } from './Error';
 
 test('renders Error component with correct error message - Invalid ID', () => {
   render(<Error error="Invalid ID" />);
