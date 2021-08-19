@@ -40,8 +40,8 @@ export function FeedbackForm({ setState }: FeedbackFormProps) {
       </div>
       <h1>Your feedback is important</h1>
       <p className="context">
-        Following your last session, please score your Academy Coach according to their current performance. Here is a
-        reference for your scoring:
+        Following your last session, please score your Academy Coach according to their current performance. This is
+        what your scores will mean:
         <ol>
           <li>
             <span className="li-num">1</span> - Minimal to no ability (definitely not ready to graduate)
@@ -90,6 +90,7 @@ export function FeedbackForm({ setState }: FeedbackFormProps) {
         setFeedback={setFeedback}
       />
       <div className="button-cont">
+        <p style={{ marginTop: '2rem' }}>Thank you so much.</p>
         <Button valid={Object.values(feedback).every((x) => x)} submitFeedback={submitFeedback} />
       </div>
     </div>
