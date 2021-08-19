@@ -104,7 +104,7 @@ h2 {
 }
 
 p {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: var(--secondary-text);
   line-height: 120%;
 }
@@ -123,7 +123,6 @@ li {
 
 .context {
   padding: 3rem 0 1.5rem 0;
-  font-size: 1.2rem;
 }
 
 .numbers {
@@ -145,6 +144,7 @@ li {
   background-color: var(--white);
   border-bottom-right-radius: 22%;
   border-top-left-radius: 22%;
+  font-family: "Rockwell";
 }
 
 @media(max-width: 500px) {

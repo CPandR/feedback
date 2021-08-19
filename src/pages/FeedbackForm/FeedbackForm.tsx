@@ -56,7 +56,7 @@ export function FeedbackForm({ setState }: FeedbackFormProps) {
             <span className="li-num">4</span> - High ability (almost ready to graduate, after a few improvements)
           </li>
           <li>
-            <span className="li-num">5</span> - Excellent ability (They fill you with confidence and they're ready to
+            <span className="li-num">5</span> - Excellent ability (they fill you with confidence and they're ready to
             graduate)
           </li>
         </ol>
