@@ -62,14 +62,14 @@ export function FeedbackForm({ setState }: FeedbackFormProps) {
         </ol>
       </p>
       <Question
-        title="Coaching & Session Quality"
+        title="Coaching & session quality"
         detail="Please rate your coach's ability to prescribe exercises that you enjoy, appropriately progress your exercise routine, count accurately and guide you smoothly through the session."
         question={1}
         currentValue={feedback['1']}
         setFeedback={setFeedback}
       />
       <Question
-        title="Project Management"
+        title="Project management"
         detail="Please rate your coach's ability to set goals for you, manage you towards your next reassessment and rearrange your sessions as needed without your progress being affected."
         question={2}
         currentValue={feedback['2']}
