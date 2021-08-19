@@ -1,8 +1,5 @@
 import './App.css';
-import FeedbackForm from './pages/FeedbackForm';
-import Loading from './pages/Loading';
-import Error from './pages/Error';
-import Success from './pages/Success';
+import { FeedbackForm, Loading, Error, Success } from './pages';
 import { Route } from 'react-router-dom';
 
 function App() {

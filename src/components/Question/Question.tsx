@@ -6,7 +6,7 @@ interface QuestionProps {
   setFeedback: Function;
 }
 
-const Question = ({ title, detail, question, currentValue, setFeedback }: QuestionProps) => {
+export const Question = ({ title, detail, question, currentValue, setFeedback }: QuestionProps) => {
   const handleChange = (val: Number) => {
     setFeedback((prev: object) => ({ ...prev, [question]: val }));
   };
@@ -31,5 +31,3 @@ const Question = ({ title, detail, question, currentValue, setFeedback }: Questi
     </div>
   );
 };
-
-export default Question;

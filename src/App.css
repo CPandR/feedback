@@ -9,11 +9,17 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 :root {
   --yellow: #ffe512;
+  --blue: #44c8f5;
   --main-text: rgba(0, 0, 0, 0.8);
   --secondary-text: rgba(0, 0, 0, 0, 7);
   --black: rgba(0, 0, 0, 1);
   --white: rgba(255, 255, 255, 1);
   --green: #7ac142;
+}
+
+@font-face {
+  font-family: 'Rockwell';
+  src: local('Rockwell'), url('./assets/fonts/Rockwell.otf') format('otf'),
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
@@ -55,8 +61,9 @@ table {
 
 .image {
   margin: 0 auto;
-  width: 180px;
+  width: 250px;
   height: auto;
+  margin-bottom: 3rem;
 }
 
 img {
@@ -69,11 +76,12 @@ img {
 }
 
 h1 {
-  width: 95%;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
-  font-size: 6rem;
+  font-size: 5.8rem;
   color: var(--main-text);
+  font-family: 'Rockwell';
 }
 
 @media(max-width: 620px) {
@@ -82,15 +90,34 @@ h1 {
   }
 }
 
+@media(max-width: 485px) {
+  h1 {
+    font-size: 3.4rem;
+  }
+}
+
 h2 {
   font-size: 1.5rem;
   padding-bottom: 0.4rem;
+  font-family: 'Rockwell';
 }
 
 p {
   font-size: 1rem;
   color: var(--secondary-text);
   line-height: 120%;
+}
+
+ol {
+  padding: 1rem 0;
+}
+
+li {
+  padding: 0.2rem 0;
+}
+
+.li-num {
+  font-family: 'Rockwell';
 }
 
 .context {
@@ -115,6 +142,8 @@ p {
   align-items: center;
   transition: 0.2s ease-in-out;
   background-color: var(--white);
+  border-bottom-right-radius: 22%;
+  border-top-left-radius: 22%;
 }
 
 @media(max-width: 500px) {
@@ -143,17 +172,24 @@ p {
   color: var(--white);
 }
 
+.button-cont {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 button {
   height: 60px;
   width: 180px;
   margin-top: 2rem;
   border-radius: 8px;
-  background-color: var(--main-text);
-  color: var(--white);
+  background-color: var(--yellow);
+  color: var(--black);
   border: none;
   font-size: 1rem;
   cursor: pointer;
   transition: 0.2s ease-in-out;
+  opacity: 0.8;
 }
 
 @media(max-width: 500px) {
@@ -164,11 +200,11 @@ button {
 }
 
 button:focus {
-  outline-color: var(--yellow);
+  outline-color: var(--black);
 }
 
 button:hover {
-  background-color: var(--black);
+  opacity: 1;
   transition: 0.2s ease-in-out;
 }
 
