@@ -2,10 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import qs, { ParsedQuery } from 'query-string';
 import './App.css';
-import FeedbackForm from './pages/FeedbackForm';
-import Loading from './pages/Loading';
-import Error from './pages/Error';
-import Success from './pages/Success';
+import { FeedbackForm, Loading, Error, Success } from './pages';
 import prod from './config/config';
 
 function App() {
@@ -20,9 +17,13 @@ function App() {
         setState('form');
       })
       .catch((err) => {
-        const { error } = err?.response?.data;
-        setState('error');
-        setError(error);
+        if (err.message === 'Network Error') {
+          setState('error');
+        } else {
+          const { error } = err?.response?.data;
+          setState('error');
+          setError(error);
+        }
       });
   }, []);
 

@@ -6,7 +6,7 @@ interface QuestionProps {
   setFeedback: Function;
 }
 
-const Question = ({ title, detail, question, currentValue, setFeedback }: QuestionProps) => {
+export const Question = ({ title, detail, question, currentValue, setFeedback }: QuestionProps) => {
   const handleChange = (val: Number) => {
     setFeedback((prev: object) => ({ ...prev, [question]: val }));
   };
@@ -15,7 +15,7 @@ const Question = ({ title, detail, question, currentValue, setFeedback }: Questi
       <h2>{title}</h2>
       <p>{detail}</p>
       <div className="numbers">
-        {Array.from({ length: 5 }, (_, i) => 1 + i * 1).map((num) => {
+        {Array.from({ length: 10 }, (_, i) => 1 + i * 1).map((num) => {
           return (
             <div
               key={`${title} - ${num}`}
@@ -31,5 +31,3 @@ const Question = ({ title, detail, question, currentValue, setFeedback }: Questi
     </div>
   );
 };
-
-export default Question;
