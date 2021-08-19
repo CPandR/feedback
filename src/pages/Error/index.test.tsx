@@ -31,7 +31,7 @@ test('renders Error component with correct error message - Feedback not required
 
 test('renders Error component with correct error message - Feedback already submitted', () => {
   render(<Error error="Feedback already submitted" />);
-  const title = screen.getByText(/Uh oh!/i);
+  const title = screen.getByText(/Thank you!/i);
   const detail = screen.getByText(/It looks like feedback has already been submitted/i);
   expect(title).toBeInTheDocument();
   expect(detail).toBeInTheDocument();
