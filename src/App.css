@@ -83,7 +83,7 @@ h1 {
   text-align: center;
   font-size: 5rem;
   color: var(--main-text);
-  font-family: 'Rockwell';
+  font-family: 'Roboto';
 }
 
 @media(max-width: 620px) {
@@ -101,7 +101,7 @@ h1 {
 h2 {
   font-size: 1.5rem;
   padding-bottom: 0.4rem;
-  font-family: 'Rockwell';
+  font-family: 'Roboto';
   color: var(--blue);
 }
 
@@ -120,7 +120,7 @@ li {
 }
 
 .li-num {
-  font-family: 'Rockwell';
+  font-family: 'Roboto';
 }
 
 .context {
@@ -163,15 +163,14 @@ li {
 }
 
 .number:hover {
-  background-color: var(--main-text);
-  color: var(--white);
+  background-color: var(--yellow);
+  /* color: var(--white); */
   cursor: pointer;
   transition: 0.2s ease-in-out;
 }
 
 .selected {
-  background-color: var(--main-text);
-  color: var(--white);
+  background-color: var(--yellow);
 }
 
 .button-cont {
