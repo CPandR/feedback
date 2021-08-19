@@ -38,7 +38,7 @@ export function FeedbackForm({ setState }: FeedbackFormProps) {
       <div className="image">
         <img src={CCALogo} alt="Cardiac Coach Academy" />
       </div>
-      <h1>We'd love to hear your feedback</h1>
+      <h1>Your feedback is important</h1>
       <p className="context">
         For each of the four areas below, please score your Academy Coach according to their current performance. Here
         is a reference for your scoring:
