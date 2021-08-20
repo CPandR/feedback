@@ -9,6 +9,7 @@ test('renders Error component with correct error message - Invalid ID', () => {
   expect(details).toBeInTheDocument();
 });
 
+
 test('renders Error component with correct error message - Booking not complete', () => {
   render(<Error error="Booking not complete" />);
   const title = screen.getByText(/Uh oh!/i);
