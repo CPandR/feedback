@@ -3,6 +3,7 @@ import axios from 'axios';
 import qs, { ParsedQuery } from 'query-string';
 import prod from '../../config/config';
 import { Question, Button } from '../../components';
+import CCALogo from '../../assets/images/cca-logo.webp';
 
 interface FeedbackFormProps {
   setState: Function;
@@ -17,8 +18,10 @@ interface IFeedback {
 
 export function FeedbackForm({ setState }: FeedbackFormProps) {
   const [feedback, setFeedback] = useState<IFeedback>({ 1: null, 2: null, 3: null, 4: null });
+  const [loading, setLoading] = useState<Boolean>(false);
 
   const submitFeedback = () => {
+    setLoading(true);
     const { id }: ParsedQuery<string> = qs.parse(window.location.search);
     axios
       .patch(`${prod}/submit_feedback/${id}`, {
@@ -28,49 +31,75 @@ export function FeedbackForm({ setState }: FeedbackFormProps) {
         communication: feedback['4'],
       })
       .then(() => {
+        setLoading(false);
         setState('success');
+      })
+      .catch(() => {
+        setLoading(false);
+        setState('error');
       });
   };
 
   return (
     <div className="container">
-      <h1>We'd love to hear your feedback</h1>
+      <div className="image">
+        <img src={CCALogo} alt="Cardiac Coach Academy" />
+      </div>
+      <h1>Your feedback is important</h1>
       <p className="context">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab velit eaque, quasi rem incidunt quidem rerum
-        eligendi, corporis voluptas iusto repellendus molestias perspiciatis omnis sit! Soluta architecto nostrum
-        tenetur necessitatibus! iusto repellendus molestias perspiciatis omnis sit! Soluta architecto nostrum tenetur
-        necessitatibus!
+        Following your last session, please score your Academy Coach according to their current performance. This is
+        what your scores will mean:
+        <ol>
+          <li>
+            <span className="li-num">1</span> - Minimal to no ability (definitely not ready to graduate)
+          </li>
+          <li>
+            <span className="li-num">2</span> - Some ability (improvements being shown)
+          </li>
+          <li>
+            <span className="li-num">3</span> - Average ability (competent but not world-class)
+          </li>
+          <li>
+            <span className="li-num">4</span> - High ability (almost ready to graduate, after a few improvements)
+          </li>
+          <li>
+            <span className="li-num">5</span> - Excellent ability (they fill you with confidence and they're ready to
+            graduate)
+          </li>
+        </ol>
       </p>
       <Question
-        title="Coaching & Session Quality"
-        detail="The coaching is of an excellent standard..."
+        title="Coaching and session quality"
+        detail="Please rate your coach's ability to prescribe exercises that you enjoy, appropriately progress your exercise routine, count accurately and guide you smoothly through the session."
         question={1}
         currentValue={feedback['1']}
         setFeedback={setFeedback}
       />
       <Question
-        title="Project Management"
-        detail="My Cardiac Coach keeps me well-informed about the plan leading up to my next reassessment and I am on board
-          with it..."
+        title="Project management"
+        detail="Please rate your coach's ability to set goals for you, manage you towards your next reassessment and rearrange your sessions as needed without your progress being affected."
         question={2}
         currentValue={feedback['2']}
         setFeedback={setFeedback}
       />
       <Question
-        title="Four Pillars"
-        detail="My Cardiac Coach clearly and consistently relates my progress to the 4 Pillars..."
+        title="4 Pillars"
+        detail="Please rate your coach's ability to engage you with the 4 Pillars."
         question={3}
         currentValue={feedback['3']}
         setFeedback={setFeedback}
       />
       <Question
         title="Communication"
-        detail="I receive regular, timely and motivating communication from my Cardiac Coach across the week..."
+        detail="Please rate your coach's ability to communicate in and around your sessions, including sending helpful and motivating texts and emails to keep you on track."
         question={4}
         currentValue={feedback['4']}
         setFeedback={setFeedback}
       />
-      <Button valid={Object.values(feedback).every((x) => x)} submitFeedback={submitFeedback} />
+      <div className="button-cont">
+        <p style={{ marginTop: '2rem' }}>Thank you so much.</p>
+        <Button valid={Object.values(feedback).every((x) => x) && !loading} submitFeedback={submitFeedback} />
+      </div>
     </div>
   );
 }
