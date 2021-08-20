@@ -3,7 +3,7 @@ import axios from 'axios';
 import qs, { ParsedQuery } from 'query-string';
 import prod from '../../config/config';
 import { Question, Button } from '../../components';
-import CCALogo from '../../assets/images/cca-logo.png';
+import CCALogo from '../../assets/images/cca-logo.webp';
 
 interface FeedbackFormProps {
   setState: Function;
