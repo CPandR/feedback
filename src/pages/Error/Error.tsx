@@ -2,8 +2,10 @@ interface ErrorProps {
   error: string | null;
 }
 
+
 export const Error = ({ error }: ErrorProps) => {
   let message;
+
   let title = 'Uh oh!';
   if (error === 'Booking not complete') {
     message =

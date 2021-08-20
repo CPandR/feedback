@@ -7,6 +7,7 @@ import prod from './config/config';
 
 function App() {
   const [state, setState] = useState<string>('loading');
+
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -23,6 +24,7 @@ function App() {
           const { error } = err?.response?.data;
           setState('error');
           setError(error);
+
         }
       });
   }, []);

@@ -5,9 +5,11 @@ import prod from '../../config/config';
 import { Question, Button } from '../../components';
 import CCALogo from '../../assets/images/cca-logo.webp';
 
+
 interface FeedbackFormProps {
   setState: Function;
 }
+
 
 interface IFeedback {
   1: number | null;
@@ -16,16 +18,21 @@ interface IFeedback {
   4: number | null;
 }
 
+
 export function FeedbackForm({ setState }: FeedbackFormProps) {
   const [feedback, setFeedback] = useState<IFeedback>({ 1: null, 2: null, 3: null, 4: null });
+
   const [loading, setLoading] = useState<Boolean>(false);
+
 
   const submitFeedback = () => {
     setLoading(true);
     const { id }: ParsedQuery<string> = qs.parse(window.location.search);
+
     axios
       .patch(`${prod}/submit_feedback/${id}`, {
         coaching: feedback['1'],
+
         project_management: feedback['2'],
         four_pillars: feedback['3'],
         communication: feedback['4'],
@@ -99,6 +106,7 @@ export function FeedbackForm({ setState }: FeedbackFormProps) {
       <div className="button-cont">
         <p style={{ marginTop: '2rem' }}>Thank you so much.</p>
         <Button valid={Object.values(feedback).every((x) => x) && !loading} submitFeedback={submitFeedback} />
+
       </div>
     </div>
   );
