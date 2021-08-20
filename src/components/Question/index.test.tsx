@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import Question from './index';
+import { Question } from './index';
 
 test('renders question component with correct text', () => {
   render(<Question title="hello world" detail="123" question={1} currentValue={null} setFeedback={() => {}} />);

@@ -14,7 +14,7 @@ export const Error = ({ error }: ErrorProps) => {
   } else if (error === 'Feedback already submitted') {
     message =
       'It looks like feedback has already been submitted for this session! If you believe this to be a mistake, please contact your Cardiac Coach.';
-    title = 'Thank You!';
+    title = 'Thank you!';
   } else {
     message =
       "It looks like you've taken a wrong turn. If you were expecting to submit feedback, please try following the link sent via email again or contact your Cardiac Coach.";

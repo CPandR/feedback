@@ -15,7 +15,7 @@ export const Question = ({ title, detail, question, currentValue, setFeedback }:
       <h2>{title}</h2>
       <p>{detail}</p>
       <div className="numbers">
-        {Array.from({ length: 10 }, (_, i) => 1 + i * 1).map((num) => {
+        {Array.from({ length: 5 }, (_, i) => 1 + i * 1).map((num) => {
           return (
             <div
               key={`${title} - ${num}`}
