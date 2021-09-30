@@ -33,7 +33,7 @@ export const Question = ({ title, detail, question, currentValue, setFeedback }:
               onClick={() => handleChange(num)}
               onKeyPress={(e) => handleKeyPress(e, num)}
             >
-              {num}
+              {num === 0 ? 'N/A' : num}
             </div>
           );
         })}
