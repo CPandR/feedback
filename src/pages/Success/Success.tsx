@@ -5,7 +5,7 @@ export const Success = () => {
     <div className="alt-container">
       <Checkmark />
       <h2>Thank you!</h2>
-      <p>Your feedback ensures we can deliver the best possible service and help our atletes live longer better.</p>
+      <p>Your feedback ensures we can deliver the best possible service and help our athletes live longer better.</p>
     </div>
   );
 };
