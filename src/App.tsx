@@ -13,16 +13,16 @@ function App() {
     const { id }: ParsedQuery<string> = qs.parse(window.location.search);
     axios
       .get(`${prod}/validate_feedback/${id}`)
-      .then(() => {
+      .then((res) => {
         setState('form');
       })
       .catch((err) => {
         if (err.message === 'Network Error') {
           setState('error');
         } else {
-          const { error } = err?.response?.data;
+          const { data } = err?.response;
           setState('error');
-          setError(error);
+          setError(data);
         }
       });
   }, []);
