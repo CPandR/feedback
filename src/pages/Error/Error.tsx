@@ -3,7 +3,7 @@ interface ErrorProps {
 }
 
 export const ErrorPage = ({ error }: ErrorProps) => {
-	let message;
+	let message: string;
 	let title = "Uh oh!";
 	if (error === "Booking not complete") {
 		message =

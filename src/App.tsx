@@ -2,7 +2,6 @@ import axios from "axios";
 import qs, { type ParsedQuery } from "query-string";
 import { useEffect, useState } from "react";
 
-import prod from "./config/config";
 import "./App.css";
 import { ErrorPage, FeedbackForm, Loading, Success } from "./pages";
 
@@ -16,7 +15,7 @@ function App() {
 		const { id }: ParsedQuery<string> = qs.parse(window.location.search);
 		console.log(id);
 		axios
-			.get(`${prod}/validate_feedback/${id}`)
+			.get(`${import.meta.env.VITE_API_URL}/validate_feedback/${id}`)
 			.then(() => {
 				setState("form");
 			})
