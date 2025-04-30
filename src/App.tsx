@@ -1,54 +1,48 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import qs, { ParsedQuery } from 'query-string';
-import './App.css';
-import { FeedbackForm, Loading, Error, Success } from './pages';
-import prod from './config/config';
+import axios from "axios";
+import qs, { type ParsedQuery } from "query-string";
+import { useEffect, useState } from "react";
+
+import prod from "./config/config";
+import "./App.css";
+import { ErrorPage, FeedbackForm, Loading, Success } from "./pages";
 
 function App() {
-  const [state, setState] = useState<string>('loading');
-  const [error, setError] = useState<string | null>(null);
+	const [state, setState] = useState<"loading" | "error" | "form" | "success">(
+		"loading",
+	);
+	const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    const { id }: ParsedQuery<string> = qs.parse(window.location.search);
-    axios
-      .get(`${prod}/validate_feedback/${id}`)
-      .then((res) => {
-        setState('form');
-      })
-      .catch((err) => {
-        if (err.message === 'Network Error') {
-          setState('error');
-        } else {
-          const { data } = err?.response;
-          setState('error');
-          setError(data);
-        }
-      });
-  }, []);
+	useEffect(() => {
+		const { id }: ParsedQuery<string> = qs.parse(window.location.search);
+		console.log(id);
+		axios
+			.get(`${prod}/validate_feedback/${id}`)
+			.then(() => {
+				setState("form");
+			})
+			.catch((err) => {
+				if (err.message === "Network Error") {
+					setState("error");
+				} else {
+					const data = err?.response?.data;
+					setState("error");
+					setError(data || "An error occurred");
+				}
+			});
+	}, []);
 
-  // Initially loading
-  if (state === 'loading') {
-    return <Loading />;
-  }
-  // Error state
-  if (state === 'error') {
-    return <Error error={error} />;
-  }
-
-  // Form state
-  if (state === 'form') {
-    return <FeedbackForm setState={setState} />;
-  }
-
-  // Success state
-  if (state === 'success') {
-    return <Success />;
-  }
-
-  // Fallback error state
-  else {
-    return <Error error={error} />;
-  }
+	switch (state) {
+		case "loading":
+			return <Loading />;
+		case "error":
+			return <ErrorPage error={error} />;
+		case "form":
+			return <FeedbackForm setState={setState} />;
+		case "success":
+			return <Success />;
+		default:
+			return <Loading />;
+	}
 }
+
 export default App;
